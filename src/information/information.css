@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0;
+}
+
+
+.Information {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+
+  font-family: sans-serif;
+
+}
+

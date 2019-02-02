@@ -1,6 +1,7 @@
 import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Collapse from "react-bootstrap/Collapse";
+import "./information.css";
 
 class Information extends React.Component {
 	constructor(props) {

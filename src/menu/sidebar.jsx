@@ -1,30 +1,62 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
 import Popup from "../popup";
+import Information from "../information/information";
 
-export default function (props) {
+class Sidebar extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			show: false
+		}
+	}
 
-	// handleClick(page) {
-	// 	alert(page);
-	// }
+	handleClick(i) {
+		console.log("CLICK!");
+		this.setState({show: i})
 
-  return (
-    <Menu>
-      {/* <a onClick={this.handleClick("information")} className="menu-item" >
-        Home
-      </a> */}
+		// return(<Popup item={<Information />} show={true} />);
+			/* <Popup show={true} />; */
+		
+	}
 
-      <a className="menu-item" href="/burgers">
-        Burgers
-      </a>
+	render() {
+	const show = this.state.show;
+	let popup;
 
-      <a className="menu-item" href="/pizzas">
-        Pizzas
-      </a>
+	if(this.state.show) {
+		popup = <Popup item={<Information />} show={true} />;
+	}
+	else {
+		popup = null;
+	}
 
-      <a className="menu-item" href="/desserts">
-        Desserts
-      </a>
-    </Menu>
-  );
-};
+		return (
+			<Menu>
+				<a
+					onClick={() => this.handleClick(true)}
+					className="menu-item"
+					href="#"
+				>
+					Home
+				</a>
+
+				<a className="menu-item" href="#">
+					Burgers
+				</a>
+
+				<a className="menu-item" href="#">
+					Pizzas
+				</a>
+
+				<a className="menu-item" href="#">
+					Desserts
+				</a>
+
+				 {popup}
+			</Menu>
+		);
+	}
+}
+
+export default Sidebar;

@@ -1,10 +1,12 @@
 import React from "react";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Information from "./information/information";
 
 class Popup extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 
 		this.handleShow = this.handleShow.bind(this);
 		this.handleClose = this.handleClose.bind(this);
@@ -12,6 +14,10 @@ class Popup extends React.Component {
 		this.state = {
 			show: false,
 		};
+	}
+
+	componentDidMount() {
+      this.setState({show: this.props.show})
 	}
 
 	handleClose() {
@@ -29,19 +35,12 @@ class Popup extends React.Component {
 					Launch demo modal
 				</Button>
 
-				<Modal show={this.state.show} onHide={this.handleClose}>
-					<Modal.Header closeButton>
-						<Modal.Title>Modal heading</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						Woohoo, you're reading this text in a modal!
-					</Modal.Body>
+				<Modal size="lg" show={this.state.show} onHide={this.handleClose}>
+					{this.props.item}
+					{/* <Information /> */}
 					<Modal.Footer>
 						<Button variant="secondary" onClick={this.handleClose}>
 							Close
-						</Button>
-						<Button variant="primary" onClick={this.handleClose}>
-							Save Changes
 						</Button>
 					</Modal.Footer>
 				</Modal>

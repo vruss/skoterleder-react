@@ -6,19 +6,22 @@ import SideBar from "./menu/sidebar";
 import Information from "./information/information";
 import Popup from "./popup";
 
-function App() {
-	return (
-		<div id="App">
-			<SideBar />
+export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-			<div id="page-wrap">
-				<Information />
-            <Popup/>
-				{/* <h1>Cool Restaurant 🍔🍕</h1>
-				<h2>Check out our offerings in the sidebar!</h2> */}
+	render() {
+		return (
+			<div id="App">
+				<SideBar />
+
+				<div id="page-wrap">
+					{/* <Popup item={<Information />} show={true} /> */}
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 const rootElement = document.getElementById("root");
