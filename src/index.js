@@ -14,10 +14,6 @@ const newComment = {
 };
 
 ReactDOM.render(
-	<Comment
-		date={newComment.date}
-		text={newComment.text}
-		author={newComment.author}
-	/>,
+	<Information />,
 	document.getElementById("root"),
 );
