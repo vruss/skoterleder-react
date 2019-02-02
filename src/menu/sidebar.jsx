@@ -1,12 +1,18 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
+import Popup from "../popup";
 
-export default props => {
+export default function (props) {
+
+	// handleClick(page) {
+	// 	alert(page);
+	// }
+
   return (
     <Menu>
-      <a className="menu-item" href="/">
+      {/* <a onClick={this.handleClick("information")} className="menu-item" >
         Home
-      </a>
+      </a> */}
 
       <a className="menu-item" href="/burgers">
         Burgers
