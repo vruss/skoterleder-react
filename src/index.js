@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Information from "./information/information";
-import Comment from "./social/comment";
+import "./menu/sidebar.css";
+import SideBar from "./menu/sidebar";
 
-const newComment = {
-	date: new Date(),
-	text: "I hope you enjoy learning React!",
-	author: {
-		name: "Hello Kitty",
-		avatarUrl: "https://placekitten.com/g/64/64",
-	},
-};
+function App() {
+  return (
+    <div id="App">
+      <SideBar />
 
-ReactDOM.render(
-	<Information />,
-	document.getElementById("root"),
-);
+      <div id="page-wrap">
+        <h1>Cool Restaurant 🍔🍕</h1>
+        <h2>Check out our offerings in the sidebar!</h2>
+      </div>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
