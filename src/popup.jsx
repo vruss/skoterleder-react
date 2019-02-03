@@ -2,27 +2,17 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-class Popup extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
-			<Modal
-				size="lg"
-				show={this.props.show}
-				onHide={this.props.handleClose}
-			>
-				{this.props.element}
-				<Modal.Footer>
-					<Button variant="secondary" onClick={this.props.handleClose}>
-						Close
-					</Button>
-				</Modal.Footer>
-			</Modal>
-		);
-	}
+function Popup(props) {
+	return (
+		<Modal size="lg" show={props.show} onHide={props.handleClose}>
+			{props.element}
+			<Modal.Footer>
+				<Button variant="secondary" onClick={props.handleClose}>
+					Close
+				</Button>
+			</Modal.Footer>
+		</Modal>
+	);
 }
 
 export default Popup;

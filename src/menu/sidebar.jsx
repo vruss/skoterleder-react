@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "react-burger-menu/lib/menus/slide";
 import Information from "../information/information";
+import Button from "react-bootstrap/Button";
 
 class Sidebar extends React.Component {
 	constructor(props) {
@@ -30,33 +31,36 @@ class Sidebar extends React.Component {
 	render() {
 		return (
 			<Menu
+				noOverlay
 				disableOverlayClick // Prevent overlay clicks from closing the menu
 				isOpen={this.state.menuOpen}
 				onStateChange={state => this.handleStateChange(state)}
 			>
-				<a
+				<Button
+					variant="outline-*"
 					onClick={() => this.handleClick(<Information />)}
 					className="menu-item"
 					href="#"
 				>
 					More Information
-				</a>
+				</Button>
 
-				<a
+				<Button
+					variant="outline-*"
 					onClick={() => this.handleClick(<h1>TEST BUTTON</h1>)}
 					className="menu-item"
 					href="#"
 				>
 					Test Button
-				</a>
+				</Button>
 
-				<a className="menu-item" href="#">
+				<Button variant="outline-*" className="menu-item" href="#">
 					Pizzas
-				</a>
+				</Button>
 
-				<a className="menu-item" href="#">
+				<Button variant="outline-*" className="menu-item" href="#">
 					Desserts
-				</a>
+				</Button>
 			</Menu>
 		);
 	}
