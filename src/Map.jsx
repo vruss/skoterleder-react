@@ -22,7 +22,7 @@ class MyMap extends React.Component {
 				animate={true}
 				minZoom={5}
 				maxZoom={14}
-            zoomControl={false}
+            zoomControl={false }
 			>
 				<TileLayer
 					MaxBounds={latLngList}
