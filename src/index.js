@@ -5,6 +5,7 @@ import "./menu/sidebar.css";
 import SideBar from "./menu/sidebar";
 import Information from "./information/information";
 import Popup from "./popup";
+import MyMap from "./Map";
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -24,8 +25,8 @@ export default class App extends React.Component {
 	}
 
 	handleShow(element) {
-      this.setState({ show: true });
-      this.setState({ element: element });
+		this.setState({ show: true });
+		this.setState({ element: element });
 	}
 
 	render() {
@@ -41,7 +42,11 @@ export default class App extends React.Component {
 					handleClose={this.handleClose}
 				/>
 
-				<div id="page-wrap" />
+				<div id="page-wrap">
+					
+						<MyMap />
+					
+				</div>
 			</div>
 		);
 	}
