@@ -1,43 +1,18 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-import Popup from "../popup";
-import Information from "../information/information";
 
 class Sidebar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			show: false
+			isOpen = false;
 		}
 	}
 
-	handleClick(i) {
-		console.log("CLICK!");
-		this.setState({show: i})
-
-		// return(<Popup item={<Information />} show={true} />);
-			/* <Popup show={true} />; */
-		
-	}
-
 	render() {
-	const show = this.state.show;
-	let popup;
-
-	if(this.state.show) {
-		popup = <Popup item={<Information />} show={true} />;
-	}
-	else {
-		popup = null;
-	}
-
 		return (
 			<Menu>
-				<a
-					onClick={() => this.handleClick(true)}
-					className="menu-item"
-					href="#"
-				>
+				<a onClick={this.props.handleShow} className="menu-item" href="#">
 					Home
 				</a>
 
@@ -52,8 +27,6 @@ class Sidebar extends React.Component {
 				<a className="menu-item" href="#">
 					Desserts
 				</a>
-
-				 {popup}
 			</Menu>
 		);
 	}
