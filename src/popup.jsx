@@ -5,10 +5,6 @@ import Modal from "react-bootstrap/Modal";
 class Popup extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			show: false,
-		};
 	}
 
 	render() {

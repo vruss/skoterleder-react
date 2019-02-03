@@ -16,18 +16,16 @@ export default class App extends React.Component {
 		this.state = {
 			element: <Information />,
 			show: false,
-			menuOpen: false,
 		};
 	}
-
-	
 
 	handleClose() {
 		this.setState({ show: false });
 	}
 
-	handleShow() {
-		this.setState({ show: true });
+	handleShow(element) {
+      this.setState({ show: true });
+      this.setState({ element: element });
 	}
 
 	render() {

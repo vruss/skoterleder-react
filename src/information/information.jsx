@@ -1,6 +1,7 @@
 import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Collapse from "react-bootstrap/Collapse";
+import Button from "react-bootstrap/Button";
 import "./information.css";
 
 class Information extends React.Component {
@@ -11,39 +12,27 @@ class Information extends React.Component {
 		};
 	}
 
-	// this.state = {
-	// 	buttons: [
-	// 		{ name: "about-collapse-text", isOpen: false },
-	// 		{ name: "two", isOpen: false },
-	// 		{ name: "tree", isOpen: false },
-	// 	],
-	// };
-
-	// onButtonClick = button => {
-	// 	this.setState(state => {
-	// 		const buttons = state.buttons.map(())
-	// 	})
-	// }
-
 	render() {
 		const { about } = this.state;
 
 		return (
 			<div className="Information">
-				<container>
+				
 					<Jumbotron fluid>
 						<h1>Skoterleder.org</h1>
 						<p>Kartan för skoteråkare, av skoteråkare!</p>
 					</Jumbotron>
-				</container>
 				
-				<button
+
+				<Button
+					variant="info"
 					onClick={() => this.setState({ about: !about })}
-					aria-controls="about-collapse-text"
-					aria-expanded={about}
+					block
+					/* aria-controls="about-collapse-text"
+					aria-expanded={about} */
 				>
-					click
-				</button>
+					Om oss
+				</Button>
 				<Collapse in={this.state.about}>
 					<div id="about-collapse-text">
 						<p>
