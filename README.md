@@ -57,3 +57,10 @@ Map tiles and markers used in rendering the map:
 
 Main concepts and advanded guides:
 (https://reactjs.org/docs/)
+
+## Notes
+
+### Formating
+
+Formating is done using the Prettier plugin: 
+(https://github.com/prettier/prettier)
