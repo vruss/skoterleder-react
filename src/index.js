@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
 		this.state = {
 			element: <Information />,
-			show: false,
+			show: false
 		};
 	}
 
@@ -43,9 +43,7 @@ export default class App extends React.Component {
 				/>
 
 				<div id="page-wrap">
-					
-						<MyMap />
-					
+					<MyMap />
 				</div>
 			</div>
 		);
