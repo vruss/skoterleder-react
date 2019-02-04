@@ -1,0 +1,191 @@
+{
+	"marker": [
+		{
+			"coordinates": ["62.118256", "14.157085"],
+			"icon": "snowmobile-green",
+			"properties": {
+				"id": 118,
+				"title": "Ledbevis g\u00e4ller i detta omr\u00e5de !!"
+			}
+		},
+		{
+			"coordinates": ["65.444140", "19.383144"],
+			"icon": "snowmobile-green",
+			"properties": { "id": 120, "title": "Vindskydd" }
+		},
+		{
+			"coordinates": ["63.839609", "15.548401"],
+			"icon": "caution",
+			"properties": { "id": 130, "title": "Str\u00f6ms Vattudal" }
+		},
+		{
+			"coordinates": ["62.537582", "15.902538"],
+			"icon": "caution",
+			"properties": {
+				"id": 153,
+				"title": "Isvarning f\u00f6r Borgsj\u00f6n."
+			}
+		},
+		{
+			"coordinates": ["62.412001", "13.959503"],
+			"icon": "information",
+			"properties": { "id": 182, "title": "Vemdalen Experience" }
+		},
+		{
+			"coordinates": ["61.655050", "16.887531"],
+			"icon": "snowmobile-green",
+			"properties": { "id": 206, "title": "Kraftleden" }
+		},
+		{
+			"coordinates": ["64.387441", "18.088989"],
+			"icon": "shelter",
+			"properties": { "id": 254, "title": "Grillstuga Br\u00e5nakojan" }
+		},
+		{
+			"coordinates": ["64.415356", "17.863662"],
+			"icon": "shelter",
+			"properties": { "id": 255, "title": "Vindskydd B\u00f6rtingberget" }
+		},
+		{
+			"coordinates": ["61.506730", "16.211529"],
+			"icon": "shelter",
+			"properties": { "id": 258, "title": "Vindskydd" }
+		},
+		{
+			"coordinates": ["61.484734", "16.268628"],
+			"icon": "shelter",
+			"properties": { "id": 259, "title": "Stugga p\u00e5 Acktj\u00e4rn" }
+		},
+		{
+			"coordinates": ["61.462712", "16.370989"],
+			"icon": "fuel",
+			"properties": { "id": 260, "title": "Bensin" }
+		},
+		{
+			"coordinates": ["67.954859", "23.683065"],
+			"icon": "fuel",
+			"properties": { "id": 262, "title": "SEO Muonio" }
+		},
+		{
+			"coordinates": ["60.623943", "17.417771"],
+			"icon": "fuel",
+			"properties": {
+				"id": 263,
+				"title": "Preem - Skutsk\u00e4r,G\u00e4vlev\u00e4gen"
+			}
+		},
+		{
+			"coordinates": ["60.898460", "16.728680"],
+			"icon": "fuel",
+			"properties": {
+				"id": 264,
+				"title": "Preem - Ockelbo,Hamr\u00e5ngev\u00e4gen"
+			}
+		},
+		{
+			"coordinates": ["61.286067", "16.842715"],
+			"icon": "fuel",
+			"properties": {
+				"id": 265,
+				"title": "Preem - S\u00f6derala,Mokorset"
+			}
+		},
+		{
+			"coordinates": ["63.390504", "14.906709"],
+			"icon": "fuel",
+			"properties": { "id": 266, "title": "Preem - H\u00e4ggen\u00e5s" }
+		},
+		{
+			"coordinates": ["64.596518", "18.680605"],
+			"icon": "fuel",
+			"properties": { "id": 267, "title": "Preem Lycksele" }
+		},
+
+		{
+			"coordinates": ["64.264420", "16.397331"],
+			"icon": "parking",
+			"properties": { "id": 1926, "title": "Parkering" }
+		},
+		{
+			"coordinates": ["64.261214", "16.422822"],
+			"icon": "wildernesshut",
+			"properties": { "id": 1927, "title": "Hotell Dorotea" }
+		},
+		{
+			"coordinates": ["64.263991", "16.416428"],
+			"icon": "information",
+			"properties": { "id": 1929, "title": "MB Simhall" }
+		},
+		{
+			"coordinates": ["61.424279", "15.701694"],
+			"icon": "snowmobile-green",
+			"properties": { "id": 1933, "title": "Leden St\u00e4ngd " }
+		},
+		{
+			"coordinates": ["61.405489", "15.767057"],
+			"icon": "caution",
+			"properties": { "id": 1934, "title": "Alltid Svag is" }
+		},
+		{
+			"coordinates": ["61.452388", "15.640776"],
+			"icon": "caution",
+			"properties": {
+				"id": 1935,
+				"title": "Farlig V\u00e4g\u00f6verfart"
+			}
+		},
+		{
+			"coordinates": ["61.375068", "15.798849"],
+			"icon": "information",
+			"properties": { "id": 1936, "title": "Skidomr\u00e5de" }
+		},
+		{
+			"coordinates": ["61.381666", "15.887046"],
+			"icon": "fuel",
+			"properties": { "id": 1937, "title": "Bensinstation" }
+		},
+		{
+			"coordinates": ["61.376205", "15.437778"],
+			"icon": "snowmobile-green",
+			"properties": { "id": 1938, "title": "Gammal Led " }
+		},
+		{
+			"coordinates": ["61.390011", "15.890043"],
+			"icon": "wildernesshut",
+			"properties": {
+				"id": 1939,
+				"title": "\u00d6stanb\u00e4ckens Skoterstuga"
+			}
+		},
+		{
+			"coordinates": ["63.526880", "17.989180"],
+			"icon": "snowmobile-green",
+			"properties": { "id": 1970, "title": "Arnetj\u00e4rn" }
+		},
+		{
+			"coordinates": ["63.467451", "17.146901"],
+			"icon": "wildernesshut",
+			"properties": { "id": 1971, "title": "N\u00e4vern\u00e4san" }
+		},
+		{
+			"coordinates": ["60.125231", "15.896509"],
+			"icon": "shelter",
+			"properties": { "id": 1973, "title": "Vindskydd" }
+		},
+		{
+			"coordinates": ["64.682704", "21.219149"],
+			"icon": "fuel",
+			"properties": { "id": 1975, "title": "Skelleftebr\u00e4nslen" }
+		},
+		{
+			"coordinates": ["62.820979", "17.980156"],
+			"icon": "snowmobile-green",
+			"properties": { "id": 1977, "title": "G\u00e5rdberget" }
+		},
+		{
+			"coordinates": ["64.795224", "16.067119"],
+			"icon": "wildernesshut",
+			"properties": { "id": 1978, "title": "Stugan Str\u00f6mn\u00e4s " }
+		}
+	]
+}

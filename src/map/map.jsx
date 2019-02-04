@@ -1,9 +1,8 @@
 import React from "react";
-import { Map, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
+import { Map, TileLayer, ZoomControl } from "react-leaflet";
 // import { fetch } from "whatwg-fetch";
-import Markers from "../data/markers.json";
-// import Icons from "../images/icons";
-import MyMarker from "./marker";
+import JsonMarkers from "../data/markers.json";
+import Markers from "./marker";
 import MarkerClusterGroup from "react-leaflet-markercluster/dist/react-leaflet-markercluster";
 
 import "./map.css";
@@ -14,15 +13,14 @@ class MyMap extends React.Component {
 		this.state = {
 			lat: 62.31,
 			lng: 15.39,
-			zoom: 13,
+			zoom: 7,
 			markers: []
 		};
 	}
 
 	// Load markers into state
 	componentDidMount() {
-		this.setState({ markers: Markers.marker });
-		// console.log(Icons);
+		this.setState({ markers: JsonMarkers.marker });
 
 		// fetch(URL)
 		// 	.then(response => response.json())
@@ -30,34 +28,29 @@ class MyMap extends React.Component {
 	}
 
 	render() {
-		const latLngList = [[40.712, -74.227], [40.774, -74.125]];
-		const position = [this.state.lat, this.state.lng];
+		const maxBoundsLatLng = [[40.712, -74.227], [40.774, -74.125]];
+		const center = [this.state.lat, this.state.lng];
 
 		return (
+			// Create the map object
 			<Map
-				center={position}
+				center={center}
 				zoom={this.state.zoom}
 				animate={true}
 				minZoom={5}
-				maxZoom={7}
+				maxZoom={14}
 				zoomControl={false}
 			>
+				{/* Render the map tiles */}
 				<TileLayer
-					MaxBounds={latLngList}
+					MaxBounds={maxBoundsLatLng}
 					attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url="https://tiles.skoterleder.org/tiles/{z}/{x}/{y}.png"
 				/>
-
+				{/* Render the markers */}
 				<MarkerClusterGroup>
-					<MyMarker markers={this.state.markers} />
+					<Markers markers={this.state.markers} />
 				</MarkerClusterGroup>
-
-				{/* <Marker position={position}>
-					<Popup>
-						A pretty CSS3 popup. <br /> Easily customizable.
-					</Popup>
-				</Marker> */}
-
 				<ZoomControl position="topright" />
 			</Map>
 		);
