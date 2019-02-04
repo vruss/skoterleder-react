@@ -1,17 +1,20 @@
 import React from "react";
 import { Map, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
-import { fetch } from "whatwg-fetch";
+// import { fetch } from "whatwg-fetch";
 import Markers from "../data/markers.json";
+// import Icons from "../images/icons";
+import MyMarker from "./marker";
+import MarkerClusterGroup from "react-leaflet-markercluster/dist/react-leaflet-markercluster";
 
 import "./map.css";
 
 class MyMap extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			lat: 62.31,
 			lng: 15.39,
-			zoom: 7,
+			zoom: 13,
 			markers: []
 		};
 	}
@@ -19,6 +22,7 @@ class MyMap extends React.Component {
 	// Load markers into state
 	componentDidMount() {
 		this.setState({ markers: Markers.marker });
+		// console.log(Icons);
 
 		// fetch(URL)
 		// 	.then(response => response.json())
@@ -35,7 +39,7 @@ class MyMap extends React.Component {
 				zoom={this.state.zoom}
 				animate={true}
 				minZoom={5}
-				maxZoom={14}
+				maxZoom={7}
 				zoomControl={false}
 			>
 				<TileLayer
@@ -44,9 +48,9 @@ class MyMap extends React.Component {
 					url="https://tiles.skoterleder.org/tiles/{z}/{x}/{y}.png"
 				/>
 
-				{this.state.markers.map(marker => (
-					<Marker position={marker.coordinates} />
-				))}
+				<MarkerClusterGroup>
+					<MyMarker markers={this.state.markers} />
+				</MarkerClusterGroup>
 
 				{/* <Marker position={position}>
 					<Popup>
