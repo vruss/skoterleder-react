@@ -1,6 +1,12 @@
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, with Node.js installed, you can run:
+
+### `npm install`
+
+Installs the dependencies in the local node_modules folder.
+
+By default, npm install will install all modules listed as dependencies in package.json.
 
 ### `npm start`
 
