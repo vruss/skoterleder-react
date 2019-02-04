@@ -1,5 +1,5 @@
 import React from "react";
-import { Marker, Popup } from "react-leaflet";
+import { Marker } from "react-leaflet";
 import L from "leaflet";
 
 export default function MyMarker(props) {
@@ -12,6 +12,7 @@ export default function MyMarker(props) {
 			(icon = L.icon({
 				iconUrl: require(`../images/icons/${marker.icon}.png`),
 				popupAnchor: [0, -33]
+				// eslint-disable-next-line
 			})),
 			(
 				// Render the marker
