@@ -30,25 +30,30 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### React Bootstrap
 
-Framework used for styling and additional functionality: 
+Framework used for styling and additional functionality:
 (https://react-bootstrap.github.io/)
 
 ### React Hamburger Menu
 
-Library used to render the menu: 
+Library used to render the menu:
 (https://github.com/negomi/react-burger-menu)
 
 ### React Leaflet
 
-Library used to render the map: 
+Library used to render the map:
 (https://react-leaflet.js.org/en/)
+
+### React Leaflet Markercluster
+
+Library used to group markers:
+(https://github.com/YUzhva/react-leaflet-markercluster)
 
 ### Skoterleder
 
-Map tiles and markers used in rendering the map: 
+Map tiles and markers used in rendering the map:
 (https://github.com/skoterleder/skoterleder.org)
 
 ### React Documentation
 
-Main concepts and advanded guides: 
+Main concepts and advanded guides:
 (https://reactjs.org/docs/)
