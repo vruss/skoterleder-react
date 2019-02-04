@@ -1,5 +1,6 @@
 import React from "react";
 import { Map, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
+import "./map.css";
 
 class MyMap extends React.Component {
 	constructor() {

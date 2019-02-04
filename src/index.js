@@ -5,7 +5,7 @@ import "./menu/sidebar.css";
 import SideBar from "./menu/sidebar";
 import Information from "./information/information";
 import Popup from "./popup";
-import MyMap from "./map/Map";
+import MyMap from "./map/map";
 
 export default class App extends React.Component {
 	constructor(props) {

@@ -107,12 +107,6 @@ body {
   background: rgba(0, 0, 0, 0) !important; 
 }
 
-
-.leaflet-container {
-  height: 100%;
-  width: 100%;
-}
-
 @media screen and (max-width: 40em) {
   main {
     font-size: 80%;
