@@ -13,7 +13,9 @@ class MyMap extends React.Component {
       this.state = {
          lat: 62.31,
          lng: 15.39,
-         zoom: 7,
+         startZoom: 7,
+         maxZoom: 14,
+         minZoom: 5,
          markers: [],
          onlyUserMarkers: true,
       };
@@ -42,21 +44,26 @@ class MyMap extends React.Component {
          // Create the map object
          <Map
             center={center}
-            zoom={this.state.zoom}
+            zoom={this.state.startZoom}
             animate={true}
-            minZoom={5}
-            maxZoom={14}
+            minZoom={this.state.minZoom}
+            maxZoom={this.state.maxZoom}
             zoomControl={false}
             onZoomend={this.handleZoomed}
          >
             {/* Render the map tiles */}
             <TileLayer
                MaxBounds={maxBoundsLatLng}
-               attribution={'&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> bidragsgivare, Imagery &copy; <a href="http://skoterleder.org">Skoterleder.org</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}
+               attribution={
+                  '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> bidragsgivare, Imagery &copy; <a href="http://skoterleder.org">Skoterleder.org</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+               }
                url="https://tiles.skoterleder.org/tiles/{z}/{x}/{y}.png"
             />
             {/* Render the user markers */}
-            <MarkerClusterGroup maxClusterRadius={70}>
+            <MarkerClusterGroup
+               maxClusterRadius={70}
+               disableClusteringAtZoom={this.state.maxZoom}
+            >
                <Markers
                   markers={this.state.markers}
                   onlyUserMarkers={this.state.onlyUserMarkers}
