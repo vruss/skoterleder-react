@@ -52,7 +52,7 @@ class MyMap extends React.Component {
             {/* Render the map tiles */}
             <TileLayer
                MaxBounds={maxBoundsLatLng}
-               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+               attribution={'&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> bidragsgivare, Imagery &copy; <a href="http://skoterleder.org">Skoterleder.org</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}
                url="https://tiles.skoterleder.org/tiles/{z}/{x}/{y}.png"
             />
             {/* Render the user markers */}
