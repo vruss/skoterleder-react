@@ -24,9 +24,9 @@ class MyMap extends React.Component {
    // Load markers into state
    componentDidMount() {
       // this.setState({ markers: JsonMarkers.marker });
-      // "https://skoterleder.org/inc/getmarker.php?id=281"
+      fetch("https://skoterleder.org/inc/getmarker.php?id=281");
 
-      fetch("https://test.skoterleder.org/inc/data-icon-string.php")
+      fetch("https://test.skoterleder.org/inc/data-icon-string.php") // Markers
          .then(response => response.json())
          .then(data => this.setState({ markers: data.marker }));
    }
@@ -57,12 +57,13 @@ class MyMap extends React.Component {
                attribution={
                   '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> bidragsgivare, Imagery &copy; <a href="http://skoterleder.org">Skoterleder.org</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
                }
-               url="https://tiles.skoterleder.org/tiles/{z}/{x}/{y}.png"
+               url="https://tiles.skoterleder.org/tiles/{z}/{x}/{y}.png" // Map tiles
             />
             {/* Render the user markers */}
             <MarkerClusterGroup
                maxClusterRadius={70}
                disableClusteringAtZoom={this.state.maxZoom}
+               spiderfyOnMaxZoom={false}
             >
                <Markers
                   markers={this.state.markers}

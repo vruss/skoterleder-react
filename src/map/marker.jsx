@@ -1,5 +1,5 @@
 import React from "react";
-import { Marker } from "react-leaflet";
+import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
 export default function MyMarker(props) {
@@ -19,7 +19,11 @@ function getMarker(marker, props) {
                key={marker.properties.id}
                position={marker.coordinates}
                icon={getIcon(marker)}
-            />
+            >
+               <Popup>
+                  <p>Test popup</p>
+               </Popup>
+            </Marker>
          );
       }
    }
@@ -30,7 +34,11 @@ function getMarker(marker, props) {
             key={marker.properties.id}
             position={marker.coordinates}
             icon={getIcon(marker)}
-         />
+         >
+            <Popup>
+               <p>Test popup</p>
+            </Popup>
+         </Marker>
       );
    }
 }
