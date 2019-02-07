@@ -9,18 +9,30 @@ export default function MyMarker(props) {
    });
 }
 
+// Called when user zooms
+function handleClick(e) {
+   console.log(e);
+   
+   fetch("https://test.skoterleder.org/inc/getmarker.php?id=" + e.target.options.id) // user created marker
+         .then(response => response.json())
+         .then(data => console.log(data));
+};
+
 // Returns either all the markers or just user made ones
 function getMarker(marker, props) {
    // Return user made ones
    if (props.onlyUserMarkers) {
-      if (isUserIcon(marker)) {
+      if (isUserIcon(marker)) { 
          return (
             <Marker
                key={marker.properties.id}
+               id={marker.properties.id}
                position={marker.coordinates}
                icon={getIcon(marker)}
+               onMouseup={handleClick}
             >
                <Popup>
+                  <h3>{marker.properties.title}</h3>
                   <p>Test popup</p>
                </Popup>
             </Marker>
@@ -36,6 +48,7 @@ function getMarker(marker, props) {
             icon={getIcon(marker)}
          >
             <Popup>
+               <h3>{marker.properties.title}</h3>
                <p>Test popup</p>
             </Popup>
          </Marker>

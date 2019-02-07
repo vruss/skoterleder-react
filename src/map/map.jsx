@@ -24,7 +24,13 @@ class MyMap extends React.Component {
    // Load markers into state
    componentDidMount() {
       // this.setState({ markers: JsonMarkers.marker });
-      fetch("https://skoterleder.org/inc/getmarker.php?id=281");
+      fetch("https://test.skoterleder.org/inc/getmarker.php?id=473") // imported marker
+         .then(response => response.json())
+         .then(data => console.log(data));
+
+      fetch("https://test.skoterleder.org/inc/getmarker.php?id=1342") // user created marker
+         .then(response => response.json())
+         .then(data => console.log(data));
 
       fetch("https://test.skoterleder.org/inc/data-icon-string.php") // Markers
          .then(response => response.json())
