@@ -6,6 +6,7 @@ export default class MyMarker extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
+         isLoaded: false,
          title: null,
          description: null,
          name: null,
@@ -23,8 +24,7 @@ export default class MyMarker extends React.Component {
       )
          .then(response => response.json())
          .then(data => {
-            console.log(data);
-
+            // console.log(data);
             this.setState({
                title: data.title,
                description: data.description,
@@ -32,41 +32,55 @@ export default class MyMarker extends React.Component {
                createtime: data.createtime,
                md5: data.md5,
                hash: data.hash,
+               isLoaded: true,
             });
          });
    };
 
+   // Called when a popup is closed
+   handlePopupClose = e => {
+      this.setState({ isLoaded: false });
+   };
+
    // Returns either all the markers or just user made ones
    getMarker(marker) {
-      // Return user made ones
       return (
          <Marker
+            onPopupclose={this.handlePopupClose}
             key={marker.properties.id}
             id={marker.properties.id}
             position={marker.coordinates}
             icon={this.getIcon(marker)}
             onMouseup={this.handleClick}
          >
-            <Popup>
-               <h3>{marker.properties.title}</h3>
-               <p>{this.state.description}</p>
-               <hr />
-               <span>
-                  Created by: {this.state.name}
-                  <br />
-                  Date: {this.state.createtime}
-               </span>
-            </Popup>
+            {this.state.isLoaded ? (
+               this.getPopup(marker)
+            ) : (
+               <Popup>
+                  loading...
+                  <img
+                     src={require("../images/ajax-loader.gif")}
+                     alt="Loading"
+                  />
+               </Popup>
+            )}
          </Marker>
       );
    }
 
-   // Returns true if the icon is user made
-   isUserIcon(marker) {
-      return !(
-         marker.icon === "fuel" ||
-         marker.icon === "shelter" ||
-         marker.icon === "wildernesshut"
+   // Returns a popup
+   getPopup(marker) {
+      return (
+         <Popup>
+            <h3>{marker.properties.title}</h3>
+            <p>{this.state.description}</p>
+            <hr />
+            <span>
+               Created by: {this.state.name}
+               <br />
+               Date: {this.state.createtime}
+            </span>
+         </Popup>
       );
    }
 
@@ -86,17 +100,30 @@ export default class MyMarker extends React.Component {
             iconUrl: require(`../images/icons/${marker.icon}.png`),
             iconAnchor: [10, 10],
             iconSize: [20, 20],
-            popupAnchor: [17, 0],
+            popupAnchor: [0, -6],
          }));
       }
    }
 
+   // Returns true if the icon is user made
+   isUserIcon(marker) {
+      return !(
+         marker.icon === "fuel" ||
+         marker.icon === "shelter" ||
+         marker.icon === "wildernesshut"
+      );
+   }
+
    // Iterate through each marker in the array
    render() {
+      // eslint-disable-next-line
       return this.props.markers.map(marker => {
+         // Return user made markers
          if (this.props.onlyUserMarkers && this.isUserIcon(marker)) {
             return this.getMarker(marker);
-         } else if (!this.props.onlyUserMarkers) {
+         }
+         // returns all markers
+         else if (!this.props.onlyUserMarkers) {
             return this.getMarker(marker);
          }
       });
