@@ -24,7 +24,7 @@ export default class MyMarker extends React.Component {
       )
          .then(response => response.json())
          .then(data => {
-            // console.log(data);
+            console.log(data);
             this.setState({
                title: data.title,
                description: data.description,
@@ -68,6 +68,14 @@ export default class MyMarker extends React.Component {
       );
    }
 
+   getName() {
+      if (this.state.name === "Import") {
+         return "Importerad från OSM";
+      } else {
+         return "Skapad av: " + this.state.name;
+      }
+   }
+
    // Returns a popup
    getPopup(marker) {
       return (
@@ -75,11 +83,11 @@ export default class MyMarker extends React.Component {
             <h3>{marker.properties.title}</h3>
             <p>{this.state.description}</p>
             <hr />
-            <span>
-               Created by: {this.state.name}
+            <small>
+               {this.getName()}
                <br />
                Date: {this.state.createtime}
-            </span>
+            </small>
          </Popup>
       );
    }
