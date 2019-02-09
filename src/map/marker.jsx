@@ -15,69 +15,50 @@ export default class MyMarker extends React.Component {
       };
    }
 
-   // Called when user zooms
+   // Called when user clicks on marker
    handleClick = e => {
-      // console.log(e);
-
       fetch(
          "https://test.skoterleder.org/inc/getmarker.php?id=" +
             e.target.options.id
-      ) // user created marker
+      )
          .then(response => response.json())
          .then(data => {
-            this.setState({ title: data.title });
-            this.setState({ description: data.description });
-            this.setState({ name: data.name });
-            this.setState({ createtime: data.createtime });
-            this.setState({ md5: data.md5 });
-            this.setState({ hash: data.hash });
+            console.log(data);
+
+            this.setState({
+               title: data.title,
+               description: data.description,
+               name: data.name,
+               createtime: data.createtime,
+               md5: data.md5,
+               hash: data.hash,
+            });
          });
    };
 
    // Returns either all the markers or just user made ones
-   getMarker(marker, props) {
+   getMarker(marker) {
       // Return user made ones
-      if (props.onlyUserMarkers) {
-         if (this.isUserIcon(marker)) {
-            return (
-               <Marker
-                  key={marker.properties.id}
-                  id={marker.properties.id}
-                  position={marker.coordinates}
-                  icon={this.getIcon(marker)}
-                  onMouseup={this.handleClick}
-               > 
-                  <Popup>
-                     <h3>{marker.properties.title}</h3>
-                     <p>{this.state.description}</p>
-                     <hr></hr>
-                     <span>Created by: {this.state.name}<br></br>
-                     Date: {this.state.createtime}</span>
-                  </Popup>
-               </Marker>
-            );
-         }
-      }
-      // Return all markers
-      else {
-         return (
-            <Marker
-               key={marker.properties.id}
-               position={marker.coordinates}
-               icon={this.getIcon(marker)}
-               id={marker.properties.id}
-               onMouseup={this.handleClick}
-            >
-               <Popup>
+      return (
+         <Marker
+            key={marker.properties.id}
+            id={marker.properties.id}
+            position={marker.coordinates}
+            icon={this.getIcon(marker)}
+            onMouseup={this.handleClick}
+         >
+            <Popup>
                <h3>{marker.properties.title}</h3>
-                     <p>{this.state.description}</p>
-                     <hr></hr>
-                     <span>Imported from Open Street Map<br></br>
-                     Date: {this.state.createtime}</span>
-               </Popup>
-            </Marker>
-         );
-      }
+               <p>{this.state.description}</p>
+               <hr />
+               <span>
+                  Created by: {this.state.name}
+                  <br />
+                  Date: {this.state.createtime}
+               </span>
+            </Popup>
+         </Marker>
+      );
    }
 
    // Returns true if the icon is user made
@@ -113,7 +94,11 @@ export default class MyMarker extends React.Component {
    // Iterate through each marker in the array
    render() {
       return this.props.markers.map(marker => {
-         return this.getMarker(marker, this.props);
+         if (this.props.onlyUserMarkers && this.isUserIcon(marker)) {
+            return this.getMarker(marker);
+         } else if (!this.props.onlyUserMarkers) {
+            return this.getMarker(marker);
+         }
       });
    }
 }
