@@ -1,7 +1,6 @@
 import React from "react";
 import { Map, TileLayer, ZoomControl } from "react-leaflet";
 import { fetch } from "whatwg-fetch";
-// import JsonMarkers from "../data/markers.json";
 import Markers from "./marker";
 import MarkerClusterGroup from "react-leaflet-markercluster/dist/react-leaflet-markercluster";
 
@@ -23,16 +22,7 @@ class MyMap extends React.Component {
 
    // Load markers into state
    componentDidMount() {
-      // this.setState({ markers: JsonMarkers.marker });
-      fetch("https://test.skoterleder.org/inc/getmarker.php?id=473") // imported marker
-         .then(response => response.json())
-         .then(data => console.log(data));
-
-      fetch("https://test.skoterleder.org/inc/getmarker.php?id=1342") // user created marker
-         .then(response => response.json())
-         .then(data => console.log(data));
-
-      fetch("https://test.skoterleder.org/inc/data-icon-string.php") // Markers
+      fetch("https://test.skoterleder.org/inc/data-icon-string.php")
          .then(response => response.json())
          .then(data => this.setState({ markers: data.marker }));
    }
@@ -56,6 +46,7 @@ class MyMap extends React.Component {
             maxZoom={this.state.maxZoom}
             zoomControl={false}
             onZoomend={this.handleZoomed}
+            zoomSnap={0.1}
          >
             {/* Render the map tiles */}
             <TileLayer
@@ -67,7 +58,7 @@ class MyMap extends React.Component {
             />
             {/* Render the user markers */}
             <MarkerClusterGroup
-               maxClusterRadius={70}
+               maxClusterRadius={50}
                disableClusteringAtZoom={this.state.maxZoom}
                spiderfyOnMaxZoom={false}
             >
