@@ -2,6 +2,7 @@ import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Collapse from "react-bootstrap/Collapse";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import "./information.css";
 
 class Information extends React.Component {
@@ -9,11 +10,12 @@ class Information extends React.Component {
       super(props);
       this.state = {
          about: false,
+         news: false,
       };
    }
 
    render() {
-      const { about } = this.state;
+      const { about, news } = this.state;
 
       return (
          <div className="Information">
@@ -31,7 +33,7 @@ class Information extends React.Component {
                   Om skoterleder.org
                </Button>
                <Collapse in={this.state.about}>
-                  <div id="about-collapse-text">
+                  <Modal.Body>
                      <p>
                         Den här versionen av Skoterleder.org är under
                         omskrivning just nu i React.js och är en fri och öppen
@@ -61,8 +63,16 @@ class Information extends React.Component {
                         </a>
                      </p>
                      <b>All hjälp med sidan är välkommen!</b>
-                  </div>
+                  </Modal.Body>
                </Collapse>
+               {/* <hr /> */}
+               <Button
+                  variant="info"
+                  onClick={() => this.setState({ news: !news })}
+                  block
+               >
+                  Nyheter
+               </Button>
             </div>
          </div>
       );
