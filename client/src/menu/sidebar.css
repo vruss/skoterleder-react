@@ -1,0 +1,128 @@
+html,
+body {
+  margin: 0;
+}
+
+
+#App {
+  font-family: sans-serif;
+
+  /* Give app full page to work with */
+  height: 100vh;
+}
+
+#page-wrap {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+  height: 100%;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.2s;
+  text-align: left;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: white;
+}
+
+.btn {
+  font-size: 1.2rem;
+}
+.btn:focus {
+  box-shadow: none;
+}
+
+
+/* The rest copied directly from react-burger-menu docs */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 40px !important;
+  width: 40px !important;
+  right: 10px !important;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+  width: 3px !important;
+  height: 30px !important;
+}
+.bm-cross-button > span {
+  top: 5px !important;
+  right: 22px !important;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+.bm-menu a {
+  color: #b8b7ad
+}
+.bm-menu a:focus, .bm-menu a:hover {
+  color: #c94e50;
+  /* outline-style: none; */
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0) !important; 
+}
+
+@media screen and (max-width: 40em) {
+  main {
+    font-size: 80%;
+  }
+
+  h1 {
+    padding-top: 1em;
+    font-size: 2.5em;
+  }
+
+  .demo-buttons {
+    max-width: 900px;
+    padding: 0 2em;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+  }
+}
