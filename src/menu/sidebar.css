@@ -42,6 +42,9 @@ body {
 .btn:focus {
   box-shadow: none;
 }
+.btn ~ .btn {
+  margin-top: 1rem;
+}
 
 
 /* The rest copied directly from react-burger-menu docs */
